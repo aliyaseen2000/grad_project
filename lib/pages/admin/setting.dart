@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:grad_project/pages/admin/edit_profile.dart';
-import 'package:grad_project/pages/admin/password.dart';
+import 'package:grad_proj/pages/admin/edit_profile.dart';
+import 'package:grad_proj/pages/admin/password.dart';
 
 import '../login_page.dart';
 import 'admin_home.dart';
@@ -98,15 +98,18 @@ class _Settings_ScreenState extends State<Settings_Screen> {
     return Padding(
       padding: EdgeInsets.symmetric(
           horizontal: size.height * 0.015, vertical: size.height * 0.015),
-      child: FlatButton(
-          padding: EdgeInsets.only(
-              left: size.height * 0.03,
-              right: size.height * 0.025,
-              top: size.height * 0.009,
-              bottom: size.height * 0.01),
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
-          color: Color.fromARGB(255, 159, 198, 223).withOpacity(0.8),
+      child: TextButton(
+          style: TextButton.styleFrom(
+            padding: EdgeInsets.only(
+                left: size.height * 0.03,
+                right: size.height * 0.025,
+                top: size.height * 0.009,
+                bottom: size.height * 0.01),
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+            backgroundColor:
+                Color.fromARGB(255, 159, 198, 223).withOpacity(0.8),
+          ),
           onPressed: () {
             callpage(i, context);
           },
@@ -131,7 +134,7 @@ class _Settings_ScreenState extends State<Settings_Screen> {
                   child: Text(
                     st,
                     style: TextStyle(
-                        // color: Color(0xff132137),
+                        color: Color(0xff132137),
                         fontSize: size.width * 0.05,
                         fontWeight: FontWeight.w500),
                   ),
