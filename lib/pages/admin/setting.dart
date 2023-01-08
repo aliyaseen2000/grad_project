@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:grad_proj/pages/admin/edit_profile.dart';
-import 'package:grad_proj/pages/admin/password.dart';
+import 'package:grad_project/pages/admin/edit_profile.dart';
+import 'package:grad_project/pages/admin/password.dart';
 
 import '../login_page.dart';
 import 'admin_home.dart';
