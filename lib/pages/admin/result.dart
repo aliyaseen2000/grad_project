@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:grad_proj/pages/admin/admin_home.dart';
+import 'package:grad_project/pages/admin/admin_home.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter/cupertino.dart';
 import '../../common/theme_helper.dart';
