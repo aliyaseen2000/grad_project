@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:grad_project/pages/admin/appointment.dart';
-import 'package:grad_project/pages/admin/record.dart';
-import 'package:grad_project/pages/admin/setting.dart';
+import 'package:grad_proj/pages/admin/appointment.dart';
+import 'package:grad_proj/pages/admin/record.dart';
+import 'package:grad_proj/pages/admin/result.dart';
+import 'package:grad_proj/pages/admin/setting.dart';
 
 class admin_homepage extends StatefulWidget {
   const admin_homepage({Key? key}) : super(key: key);
@@ -22,7 +23,7 @@ class _admin_homepageState extends State<admin_homepage> {
         toolbarHeight: MediaQuery.of(context).size.height * 0.09,
         elevation: 1,
         title: Padding(
-          padding: EdgeInsets.only(left: 10),
+          padding: EdgeInsets.only(left: 50),
           child: SizedBox(
             width: MediaQuery.of(context).size.width * 0.6,
             height: MediaQuery.of(context).size.height * 0.065,
@@ -53,6 +54,11 @@ class _admin_homepageState extends State<admin_homepage> {
             if (index == 0) {
               Navigator.pushReplacement(context,
                   MaterialPageRoute(builder: (context) => appointment_page()));
+              setState(() {});
+            }
+            if (index == 1) {
+              Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: (context) => result_page()));
               setState(() {});
             }
             if (index == 3) {
@@ -213,7 +219,13 @@ class _admin_homepageState extends State<admin_homepage> {
                           shadowColor:
                               MaterialStateProperty.all(Colors.transparent),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => result_page()));
+                          setState(() {});
+                        },
                       ),
                     ),
                   ],
