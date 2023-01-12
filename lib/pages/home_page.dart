@@ -11,14 +11,37 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   //details of appointment
-  String Lab_name = "Professional";
-  List<String> selected_test = [
-    'ggg',
-    'ffff',
+  List<String> Lab_name = [
+    "Professional",
     "Professional ",
+    "Al-Najah ",
+    "MedLabs",
   ];
-  String selected_date = "0/0/0";
-  String selected_time = "5:10";
+  List<List> selected_test = [
+    [
+      'ggga',
+      "Professional ",
+    ],
+    [
+      'gggj',
+      "Professional ",
+    ],
+    [
+      'ggmg',
+      "Professional ",
+    ],
+    [
+      'ggbg',
+      "Professional ",
+    ]
+  ];
+  List<String> selected_date = ["0/0/0", "0/0/0", "0/0/0", "0/0/0"];
+  List<String> selected_time = [
+    "5:10",
+    "5:10",
+    "5:10",
+    "5:10",
+  ];
 
   //information about Labs
   List<String> Laboratories = [
@@ -123,39 +146,65 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
-            Padding(
-              padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.07),
-              child: Container(
-                width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height * 0.28,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: const BorderRadius.only(
-                    bottomRight: Radius.circular(20.0),
-                    bottomLeft: Radius.circular(20.0),
-                    topLeft: Radius.circular(20.0),
-                    topRight: Radius.circular(20.0),
+            for (int j = 0; j < Lab_name.length; j++) appointmentt(context, j)
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget appointmentt(BuildContext context, int i) {
+    return Padding(
+      padding: EdgeInsets.all(MediaQuery.of(context).size.width * 0.07),
+      child: Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height * 0.28,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: const BorderRadius.only(
+            bottomRight: Radius.circular(20.0),
+            bottomLeft: Radius.circular(20.0),
+            topLeft: Radius.circular(20.0),
+            topRight: Radius.circular(20.0),
+          ),
+          boxShadow: <BoxShadow>[
+            BoxShadow(
+                color: Colors.black.withOpacity(0.3),
+                offset: const Offset(1.1, 4.0),
+                blurRadius: 8.0),
+          ],
+        ),
+        child: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Stack(
+            children: [
+              Padding(
+                padding: EdgeInsets.all(15),
+              ),
+              Row(
+                children: [
+                  Padding(
+                    padding: EdgeInsets.only(left: 25, top: 30),
+                    child: Text(
+                      Lab_name[i],
+                      style: TextStyle(
+                          color: Color.fromARGB(255, 0, 0, 0),
+                          fontSize: MediaQuery.of(context).size.width * 0.05,
+                          fontWeight: FontWeight.w500),
+                    ),
                   ),
-                  boxShadow: <BoxShadow>[
-                    BoxShadow(
-                        color: Colors.black.withOpacity(0.3),
-                        offset: const Offset(1.1, 4.0),
-                        blurRadius: 8.0),
-                  ],
-                ),
-                child: SingleChildScrollView(
-                  scrollDirection: Axis.vertical,
-                  child: Stack(
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.all(15),
-                      ),
-                      Row(
+                  Padding(
+                      padding: EdgeInsets.only(left: 63, top: 30),
+                      child: Row(
                         children: [
+                          Icon(
+                            Icons.calendar_today,
+                            color: Color.fromARGB(255, 9, 78, 153),
+                          ),
                           Padding(
-                            padding: EdgeInsets.only(left: 25, top: 30),
+                            padding: EdgeInsets.only(left: 10),
                             child: Text(
-                              Lab_name,
+                              selected_date[i],
                               style: TextStyle(
                                   color: Color.fromARGB(255, 0, 0, 0),
                                   fontSize:
@@ -163,137 +212,107 @@ class _HomePageState extends State<HomePage> {
                                   fontWeight: FontWeight.w500),
                             ),
                           ),
-                          Padding(
-                              padding: EdgeInsets.only(left: 63, top: 30),
-                              child: Row(
-                                children: [
-                                  Icon(
-                                    Icons.calendar_today,
-                                    color: Color.fromARGB(255, 9, 78, 153),
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsets.only(left: 10),
-                                    child: Text(
-                                      selected_date,
-                                      style: TextStyle(
-                                          color: Color.fromARGB(255, 0, 0, 0),
-                                          fontSize: MediaQuery.of(context)
-                                                  .size
-                                                  .width *
-                                              0.05,
-                                          fontWeight: FontWeight.w500),
-                                    ),
-                                  ),
-                                ],
-                              )),
                         ],
+                      )),
+                ],
+              ),
+              Padding(
+                  padding: EdgeInsets.only(left: 197, top: 70),
+                  child: Row(
+                    children: [
+                      Icon(
+                        Icons.timer_sharp,
+                        color: Color.fromARGB(255, 9, 78, 153),
                       ),
                       Padding(
-                          padding: EdgeInsets.only(left: 197, top: 70),
-                          child: Row(
-                            children: [
-                              Icon(
-                                Icons.timer_sharp,
-                                color: Color.fromARGB(255, 9, 78, 153),
-                              ),
-                              Padding(
-                                padding: EdgeInsets.only(left: 10),
-                                child: Text(
-                                  selected_time,
-                                  style: TextStyle(
-                                      color: Color.fromARGB(255, 0, 0, 0),
-                                      fontSize:
-                                          MediaQuery.of(context).size.width *
-                                              0.05,
-                                      fontWeight: FontWeight.w500),
-                                ),
-                              ),
-                            ],
-                          )),
-                      Padding(
-                        padding: EdgeInsets.only(top: 70, left: 25),
+                        padding: EdgeInsets.only(left: 10),
                         child: Text(
-                          "Selected Test:",
+                          selected_time[i],
                           style: TextStyle(
-                              color: Color.fromARGB(255, 9, 78, 153),
+                              color: Color.fromARGB(255, 0, 0, 0),
                               fontSize:
                                   MediaQuery.of(context).size.width * 0.05,
-                              fontWeight: FontWeight.w700),
-                        ),
-                      ),
-                      for (int i = 0; i < selected_test.length; i++)
-                        text_wed(context, selected_test[i], i),
-                      Padding(
-                        padding: EdgeInsets.only(top: 160, left: 200),
-                        child: Row(
-                          children: [
-                            Container(
-                              alignment: Alignment.topCenter,
-                              height:
-                                  MediaQuery.of(context).size.height * 0.032,
-                              width: MediaQuery.of(context).size.width * 0.12,
-                              //margin: EdgeInsets.only(bottom: 10),
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(12),
-                                  ),
-                                  color: Color(0xFFFB475F).withOpacity(.65)),
-                              child: Padding(
-                                  padding: EdgeInsets.only(bottom: 1),
-                                  child: IconButton(
-                                    alignment: Alignment.topCenter,
-                                    icon: Icon(
-                                      Icons.close,
-                                      size: 12,
-                                      color: Color.fromARGB(255, 255, 255, 255),
-                                    ),
-                                    onPressed: () {
-                                      showAlertDialog(context);
-                                    },
-                                  )),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(left: 10),
-                            ),
-                            Container(
-                              alignment: Alignment.topCenter,
-                              height:
-                                  MediaQuery.of(context).size.height * 0.032,
-                              width: MediaQuery.of(context).size.width * 0.12,
-                              //margin: EdgeInsets.only(bottom: 10),
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(12),
-                                  ),
-                                  color: Color(0xFFFB475F).withOpacity(.65)),
-                              child: Padding(
-                                  padding: EdgeInsets.only(bottom: 1),
-                                  child: IconButton(
-                                    alignment: Alignment.topCenter,
-                                    icon: Icon(
-                                      Icons.edit,
-                                      size: 12,
-                                      color: Color.fromARGB(255, 255, 255, 255),
-                                    ),
-                                    onPressed: () {
-                                      Navigator.pushReplacement(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) =>
-                                                  Booking_page()));
-                                      setState(() {});
-                                    },
-                                  )),
-                            ),
-                          ],
+                              fontWeight: FontWeight.w500),
                         ),
                       ),
                     ],
-                  ),
+                  )),
+              Padding(
+                padding: EdgeInsets.only(top: 70, left: 25),
+                child: Text(
+                  "Selected Test:",
+                  style: TextStyle(
+                      color: Color.fromARGB(255, 9, 78, 153),
+                      fontSize: MediaQuery.of(context).size.width * 0.05,
+                      fontWeight: FontWeight.w700),
                 ),
               ),
-            ),
-          ],
+              for (int k = 0; k < selected_test[i].length; k++)
+                text_wed(context, selected_test[i][k], k),
+              Padding(
+                padding: EdgeInsets.only(top: 160, left: 200),
+                child: Row(
+                  children: [
+                    Container(
+                      alignment: Alignment.topCenter,
+                      height: MediaQuery.of(context).size.height * 0.032,
+                      width: MediaQuery.of(context).size.width * 0.12,
+                      //margin: EdgeInsets.only(bottom: 10),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(12),
+                          ),
+                          color: Color(0xFFFB475F).withOpacity(.65)),
+                      child: Padding(
+                          padding: EdgeInsets.only(bottom: 1),
+                          child: IconButton(
+                            alignment: Alignment.topCenter,
+                            icon: Icon(
+                              Icons.close,
+                              size: 12,
+                              color: Color.fromARGB(255, 255, 255, 255),
+                            ),
+                            onPressed: () {
+                              showAlertDialog(context);
+                            },
+                          )),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left: 10),
+                    ),
+                    Container(
+                      alignment: Alignment.topCenter,
+                      height: MediaQuery.of(context).size.height * 0.032,
+                      width: MediaQuery.of(context).size.width * 0.12,
+                      //margin: EdgeInsets.only(bottom: 10),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(12),
+                          ),
+                          color: Color(0xFFFB475F).withOpacity(.65)),
+                      child: Padding(
+                          padding: EdgeInsets.only(bottom: 1),
+                          child: IconButton(
+                            alignment: Alignment.topCenter,
+                            icon: Icon(
+                              Icons.edit,
+                              size: 12,
+                              color: Color.fromARGB(255, 255, 255, 255),
+                            ),
+                            onPressed: () {
+                              Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => Booking_page()));
+                              setState(() {});
+                            },
+                          )),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
