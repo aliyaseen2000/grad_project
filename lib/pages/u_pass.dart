@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:grad_proj/pages/admin/setting.dart';
 
 import '../../common/theme_helper.dart';
+import 'u_setting.dart';
 
 class u_password extends StatefulWidget {
   const u_password({Key? key}) : super(key: key);
@@ -43,7 +43,7 @@ class _u_passwordState extends State<u_password> {
             ),
             onPressed: () {
               Navigator.pushReplacement(context,
-                  MaterialPageRoute(builder: (context) => Settings_Screen()));
+                  MaterialPageRoute(builder: (context) => Setting_Screen()));
             },
           ),
         ),
@@ -153,8 +153,7 @@ class _u_passwordState extends State<u_password> {
                               if (_formKey.currentState!.validate()) {
                                 Navigator.of(context).pushAndRemoveUntil(
                                     MaterialPageRoute(
-                                        builder: (context) =>
-                                            Settings_Screen()),
+                                        builder: (context) => Setting_Screen()),
                                     (Route<dynamic> route) => false);
                               }
                             },
