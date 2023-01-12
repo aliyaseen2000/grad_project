@@ -2,10 +2,7 @@ import 'dart:io';
 
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:grad_project/pages/admin/admin_home.dart';
-import 'package:intl/intl.dart';
-import 'package:flutter/cupertino.dart';
 import '../../common/theme_helper.dart';
 import 'package:file_picker/file_picker.dart';
 
@@ -20,6 +17,7 @@ class _result_pageState extends State<result_page> {
   var fileName = '';
 
   var path = '';
+  TextEditingController UserID = TextEditingController();
 
   void pick() async {
     try {
@@ -48,8 +46,7 @@ class _result_pageState extends State<result_page> {
     'Ali',
   ];
   String selected_patient = '';
-  TextEditingController searchControler = TextEditingController();
-  double h = 150;
+
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 159, 198, 223),
@@ -130,10 +127,28 @@ class _result_pageState extends State<result_page> {
                   },
                 ),
               ),
+              Container(
+                padding: EdgeInsets.fromLTRB(25, 180, 25, 0),
+                alignment: Alignment.center,
+                child: TextFormField(
+                  controller: UserID,
+                  obscureText: true,
+                  decoration: ThemeHelper()
+                      .textInputDecoration("User ID", "Enter User ID"),
+                  validator: (val) {
+                    if (val!.isEmpty) {
+                      return "Please enter your User ID";
+                    }
+
+                    return null;
+                  },
+                ),
+                decoration: ThemeHelper().inputBoxDecorationShaddow(),
+              ),
               Row(
                 children: [
                   Padding(
-                    padding: EdgeInsets.fromLTRB(30, 180, 0, 0),
+                    padding: EdgeInsets.fromLTRB(30, 240, 0, 0),
                     child: Text(
                       'Pick the result you wanna send ',
                       style: TextStyle(
@@ -144,7 +159,7 @@ class _result_pageState extends State<result_page> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.fromLTRB(0, 180, 35, 0),
+                    padding: EdgeInsets.fromLTRB(0, 240, 35, 0),
                     child: IconButton(
                       icon: Icon(
                         Icons.file_upload_outlined,
@@ -159,7 +174,7 @@ class _result_pageState extends State<result_page> {
                 ],
               ),
               Padding(
-                padding: EdgeInsets.fromLTRB(115, 230, 0, 0),
+                padding: EdgeInsets.fromLTRB(115, 290, 0, 0),
                 child: Text(
                   fileName,
                   style: TextStyle(
@@ -170,7 +185,7 @@ class _result_pageState extends State<result_page> {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.fromLTRB(100, 320, 0, 0),
+                padding: EdgeInsets.fromLTRB(100, 350, 0, 0),
                 child: Container(
                   decoration: ThemeHelper().buttonBoxDecoration(context),
                   child: ElevatedButton(
