@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
 import 'booking.dart';
+import 'u_setting.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -107,6 +108,11 @@ class _HomePageState extends State<HomePage> {
         onTap: (index) {
           setState(() {
             _page = index;
+            if (index == 4) {
+              Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: (context) => Setting_Screen()));
+              setState(() {});
+            }
           });
         },
       ),
