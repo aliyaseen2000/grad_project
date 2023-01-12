@@ -107,7 +107,7 @@ class _Setting_ScreenState extends State<Setting_Screen> {
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
             backgroundColor:
-                Color.fromARGB(255, 159, 198, 223).withOpacity(0.😎,
+                Color.fromARGB(255, 159, 198, 223).withOpacity(0.8,
           ),
           onPressed: () {
             callpage(i, context);
