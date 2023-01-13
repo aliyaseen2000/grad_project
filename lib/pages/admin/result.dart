@@ -129,26 +129,17 @@ class _result_pageState extends State<result_page> {
               ),
               Container(
                 padding: EdgeInsets.fromLTRB(25, 180, 25, 0),
-                alignment: Alignment.center,
-                child: TextFormField(
+                child: TextField(
                   controller: UserID,
-                  obscureText: true,
-                  decoration: ThemeHelper()
-                      .textInputDecoration("User ID", "Enter User ID"),
-                  validator: (val) {
-                    if (val!.isEmpty) {
-                      return "Please enter your User ID";
-                    }
-
-                    return null;
-                  },
+                  decoration: InputDecoration(
+                      labelText: "Enter User ID" //label text of field
+                      ),
                 ),
-                decoration: ThemeHelper().inputBoxDecorationShaddow(),
               ),
               Row(
                 children: [
                   Padding(
-                    padding: EdgeInsets.fromLTRB(30, 240, 0, 0),
+                    padding: EdgeInsets.fromLTRB(30, 260, 0, 0),
                     child: Text(
                       'Pick the result you wanna send ',
                       style: TextStyle(
@@ -159,7 +150,7 @@ class _result_pageState extends State<result_page> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.fromLTRB(0, 240, 35, 0),
+                    padding: EdgeInsets.fromLTRB(0, 260, 35, 0),
                     child: IconButton(
                       icon: Icon(
                         Icons.file_upload_outlined,
@@ -174,7 +165,7 @@ class _result_pageState extends State<result_page> {
                 ],
               ),
               Padding(
-                padding: EdgeInsets.fromLTRB(115, 290, 0, 0),
+                padding: EdgeInsets.fromLTRB(115, 320, 0, 0),
                 child: Text(
                   fileName,
                   style: TextStyle(
@@ -185,7 +176,7 @@ class _result_pageState extends State<result_page> {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.fromLTRB(100, 350, 0, 0),
+                padding: EdgeInsets.fromLTRB(100, 370, 0, 0),
                 child: Container(
                   decoration: ThemeHelper().buttonBoxDecoration(context),
                   child: ElevatedButton(
