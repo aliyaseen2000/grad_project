@@ -1,6 +1,7 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:grad_project/pages/admin/admin_home.dart';
+import 'package:grad_proj/pages/admin/admin_home.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter/cupertino.dart';
 import '../../common/theme_helper.dart';
@@ -12,12 +13,39 @@ class record_page extends StatefulWidget {
 }
 
 class _record_pageState extends State<record_page> {
+  //عليك تجييب كل المرضى ومعلوماتهم وتعبيهم بليست يلي تحت
   List<String> user_name = [
     'Ahmad',
     'Ali',
     'Ahmad',
     'Ali',
   ];
+  List<String> phone = [
+    "092396420",
+    "092396420",
+    "092396420",
+    "092396420",
+  ];
+  // 2d list
+  List<List> selected_test = [
+    [
+      'ggga',
+      "Professional ",
+    ],
+    [
+      'gggj',
+      "Professional ",
+    ],
+    [
+      'ggmg',
+      "Professional ",
+    ],
+    [
+      'ggbg',
+      "Professional ",
+    ]
+  ];
+
   TextEditingController searchControler = TextEditingController();
   double h = 150;
   Widget build(BuildContext context) {
@@ -101,7 +129,12 @@ class _record_pageState extends State<record_page> {
                       color: Color.fromARGB(255, 0, 0, 0),
                     ),
                     onPressed: () {
-                      print(searchControler.text);
+                      if (searchControler.text.isNotEmpty)
+                        for (int i = 0; i < user_name.length; i++) {
+                          if (searchControler.text.toLowerCase() ==
+                              user_name[i].toLowerCase())
+                            showAlertDialog(context, i);
+                        }
                     },
                   ),
                 ),
@@ -175,14 +208,21 @@ class _record_pageState extends State<record_page> {
         ),
       ),
       Padding(
-        padding: EdgeInsets.fromLTRB(160, 13, 0, 10),
-        child: Text(
-          ' Show Details',
-          style: TextStyle(
-              color: Color.fromARGB(255, 0, 0, 0),
-              fontSize: MediaQuery.of(context).size.width * 0.037,
-              fontWeight: FontWeight.w500),
-        ),
+        padding: EdgeInsets.fromLTRB(160, 15, 0, 10),
+        child: Text.rich(TextSpan(children: [
+          TextSpan(
+            text: ' Show Details',
+            recognizer: TapGestureRecognizer()
+              ..onTap = () {
+                showAlertDialog(context, i);
+              },
+            style: TextStyle(
+                decoration: TextDecoration.underline,
+                color: Color.fromARGB(255, 0, 0, 0),
+                fontSize: MediaQuery.of(context).size.width * 0.037,
+                fontWeight: FontWeight.w500),
+          ),
+        ])),
       ),
       Padding(
         padding: EdgeInsets.fromLTRB(230, 0, 0, 10),
@@ -193,10 +233,98 @@ class _record_pageState extends State<record_page> {
             color: Color.fromARGB(255, 0, 0, 0),
           ),
           onPressed: () {
-            print(searchControler.text);
+            showAlertDialog(context, i);
           },
         ),
       ),
     ]);
   }
+
+  showAlertDialog(BuildContext context, int k) {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return Dialog(
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20.0)), //this right here
+            child: Container(
+              height: MediaQuery.of(context).size.height * 0.43,
+              child: Padding(
+                padding:
+                    EdgeInsets.all(MediaQuery.of(context).size.height * 0.02),
+                child: Column(
+                  children: [
+                    SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.004),
+                    IconButton(
+                      icon: Icon(
+                        Icons.close,
+                        color: Color(0xff132137),
+                      ),
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                    ),
+                    Text(
+                      user_name[k],
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Color.fromARGB(255, 0, 0, 0),
+                        fontSize: MediaQuery.of(context).size.height * 0.03,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(top: 10),
+                    ),
+                    Text(
+                      phone[k],
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Color.fromARGB(255, 9, 78, 153),
+                        fontSize: MediaQuery.of(context).size.height * 0.023,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(top: 20),
+                    ),
+                    Text(
+                      "Tests:",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        color: Color.fromARGB(255, 0, 0, 0),
+                        fontSize: MediaQuery.of(context).size.height * 0.024,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    for (int m = 0; m < selected_test[k].length; m++)
+                      text_wed(context, selected_test[k][m], m),
+                  ],
+                ),
+              ),
+            ),
+          );
+        });
+  }
+}
+
+double ttop = 0;
+Widget text_wed(BuildContext context, String s, int i) {
+  if (i != 0) ttop = ttop + 0;
+  if (i == 0) ttop = 10;
+  return Padding(
+    padding: EdgeInsets.only(left: 10, top: ttop),
+    child: SingleChildScrollView(
+      scrollDirection: Axis.vertical,
+      child: Text(
+        s,
+        textAlign: TextAlign.left,
+        style: TextStyle(
+            color: Color.fromARGB(255, 9, 78, 153),
+            fontSize: MediaQuery.of(context).size.width * 0.04,
+            fontWeight: FontWeight.w500),
+      ),
+    ),
+  );
 }
