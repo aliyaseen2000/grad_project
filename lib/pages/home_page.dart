@@ -112,6 +112,11 @@ class _HomePageState extends State<HomePage> {
               Navigator.pushReplacement(context,
                   MaterialPageRoute(builder: (context) => Setting_Screen()));
               setState(() {});
+                       if (index == 3) {
+              Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: (context) => MapSample()));
+              setState(() {});
+            }
             }
           });
         },
