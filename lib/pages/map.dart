@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:grad_proj/pages/home_page.dart';
+import 'package:grad_project/pages/home_page.dart';
 import 'dart:math';
 import '../common/theme_helper.dart';
 import 'package:flutter_polyline_points/flutter_polyline_points.dart';
