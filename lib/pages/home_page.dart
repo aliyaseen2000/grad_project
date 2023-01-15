@@ -108,7 +108,11 @@ class _HomePageState extends State<HomePage> {
         onTap: (index) {
           setState(() {
              _page = index;
-
+           if (index == 0) {
+              Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: (context) => price_page()));
+              setState(() {});
+            }
             if (index == 3) {
               Navigator.pushReplacement(context,
                   MaterialPageRoute(builder: (context) => MapSample()));
