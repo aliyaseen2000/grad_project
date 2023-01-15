@@ -147,6 +147,72 @@ class _appointment_pageState extends State<appointment_page> {
                     } else {}
                   }),
             ),
+            
+            Row(
+              children: [
+                Padding(
+                  padding: EdgeInsets.fromLTRB(60, 10, 0, 0),
+                  child: Container(
+                    decoration: ThemeHelper().buttonBoxDecoration(context),
+                    child: ElevatedButton(
+                      style: TextButton.styleFrom(
+                          padding: EdgeInsets.only(
+                              left: 10, right: 10, top: 4, bottom: 4),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20)),
+                          backgroundColor: Color.fromARGB(255, 255, 255, 255)),
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
+                        child: Text(
+                          "Search",
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+                      onPressed: () async {},
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                ),
+                Padding(
+                  padding: EdgeInsets.fromLTRB(10, 10, 0, 0),
+                  child: Container(
+                    decoration: ThemeHelper().buttonBoxDecoration(context),
+                    child: ElevatedButton(
+                      style: TextButton.styleFrom(
+                          padding: EdgeInsets.only(
+                              left: 10, right: 10, top: 4, bottom: 4),
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20)),
+                          backgroundColor: Color.fromARGB(255, 255, 255, 255)),
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
+                        child: Text(
+                          "Show All",
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+                      onPressed: () async {},
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Padding(
+              padding: EdgeInsets.fromLTRB(0, 0, 0, 10),
+            ),
+            
+            
+            
             for (int j = 0; j < user_name.length; j++) appointmentt(context, j)
           ],
         ),
