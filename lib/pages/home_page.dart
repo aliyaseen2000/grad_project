@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-
+import 'map.dart';
 import 'booking.dart';
 import 'u_setting.dart';
 
