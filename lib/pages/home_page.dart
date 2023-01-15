@@ -107,16 +107,17 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Color.fromARGB(255, 159, 198, 223),
         onTap: (index) {
           setState(() {
-            _page = index;
-            if (index == 4) {
-              Navigator.pushReplacement(context,
-                  MaterialPageRoute(builder: (context) => Setting_Screen()));
-              setState(() {});
-                       if (index == 3) {
+             _page = index;
+
+            if (index == 3) {
               Navigator.pushReplacement(context,
                   MaterialPageRoute(builder: (context) => MapSample()));
               setState(() {});
             }
+            if (index == 4) {
+              Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: (context) => Setting_Screen()));
+              setState(() {});
             }
           });
         },
