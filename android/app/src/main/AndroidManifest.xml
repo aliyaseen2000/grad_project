@@ -1,5 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.grad_project">
+     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/> 
    <application
         android:label="grad_project"
         android:name="${applicationName}"
@@ -33,6 +36,10 @@
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <!-- Don't delete the meta-data below.
              This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->
+        <meta-data 
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAzYd_Lgl4SJav462b0Ckbeqo161BUUoxQ" />
+       
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
