@@ -24,22 +24,12 @@ class _Lab_RegistrationState extends State<Lab_Registration> {
   TextEditingController TimeInput1 = TextEditingController();
   TextEditingController TimeInput2 = TextEditingController();
 
-  List<String> Insurance = [
-    'Afghanistan',
-    'Turkey',
-    'Germany',
-    'France',
-    'Italy',
-    'Spain',
-    'United Kingdom',
-    'United States',
-    'Canada',
-    'Australia',
-    'New Zealand',
-    'India',
-    'Indonesia',
-    'Bangladesh',
-    'Sri Lanka',
+   List<String> Insurance = [
+    'Nat Health (الوطنية)',
+    'Globe Med (العالمية)',
+    'Smart Health (ترست)',
+    'Tamkeen (تمكين)',
+    'Med Service (المشرق)',
   ];
 
   List<String> selected_Insurance = [];
