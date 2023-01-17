@@ -4,6 +4,8 @@ import 'package:grad_project/pages/admin/admin_home.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter/cupertino.dart';
 
+import '../../common/theme_helper.dart';
+
 class appointment_page extends StatefulWidget {
   const appointment_page({Key? key}) : super(key: key);
   @override
@@ -22,6 +24,10 @@ class _appointment_pageState extends State<appointment_page> {
   List<List> selected_test = [
     [
       'ggga',
+      "Professional ",
+      'gggj',
+      "Professional ",
+      'gggj',
       "Professional ",
     ],
     [
@@ -43,6 +49,13 @@ class _appointment_pageState extends State<appointment_page> {
     "5:10",
     "5:10",
     "5:10",
+  ];
+
+  List<String> place = [
+    'lab',
+    'home',
+    'lab',
+    'home',
   ];
 
   List<int> check = [0, 0, 0, 0];
@@ -147,7 +160,6 @@ class _appointment_pageState extends State<appointment_page> {
                     } else {}
                   }),
             ),
-            
             Row(
               children: [
                 Padding(
@@ -210,9 +222,6 @@ class _appointment_pageState extends State<appointment_page> {
             Padding(
               padding: EdgeInsets.fromLTRB(0, 0, 0, 10),
             ),
-            
-            
-            
             for (int j = 0; j < user_name.length; j++) appointmentt(context, j)
           ],
         ),
@@ -311,6 +320,16 @@ class _appointment_pageState extends State<appointment_page> {
               Padding(
                 padding: EdgeInsets.only(top: 70, left: 25),
                 child: Text(
+                  "in" + " " + place[i],
+                  style: TextStyle(
+                      color: Color.fromARGB(255, 0, 0, 0),
+                      fontSize: MediaQuery.of(context).size.width * 0.045,
+                      fontWeight: FontWeight.w700),
+                ),
+              ),
+              Padding(
+                padding: EdgeInsets.only(top: 100, left: 25),
+                child: Text(
                   "Selected Test:",
                   style: TextStyle(
                       color: Color.fromARGB(255, 9, 78, 153),
@@ -352,7 +371,7 @@ class _appointment_pageState extends State<appointment_page> {
 
   Widget text_wed(BuildContext context, String s, int i) {
     if (i != 0) ttop = ttop + 25;
-    if (i == 0) ttop = 100;
+    if (i == 0) ttop = 120;
     return Padding(
       padding: EdgeInsets.only(left: 30, top: ttop),
       child: SingleChildScrollView(
