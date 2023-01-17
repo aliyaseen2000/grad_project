@@ -3,6 +3,7 @@ import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'map.dart';
 import 'booking.dart';
 import 'u_setting.dart';
+import 'notification.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -70,6 +71,33 @@ class _HomePageState extends State<HomePage> {
   double ttop = 100;
 
   GlobalKey<CurvedNavigationBarState> _bottomNavigationKey = GlobalKey();
+ 
+  //for notification
+  List<String> date = ["17/1/2023", "17/1/2023", "17/1/2023"];
+  List<String> noti_time = ["15:50", "16:05", "16:15"];
+
+  List<String> reminder = [
+    'Reminder',
+    'Reminder1',
+    'Reminder2',
+    'Reminder3',
+    'Reminder4',
+    'Reminder5',
+    'Reminder6',
+    'Reminder7',
+    'Reminder8',
+    'Reminder9'
+  ];
+
+  @override
+  void initState() {
+    if (noti_time.isNotEmpty) {
+      for (int i = 0; i < noti_time.length; i++) {
+        notify.create_notification(noti_time[i], date[i], i, reminder[i]);
+      }
+    }
+    super.initState();
+  }
 
   Widget build(BuildContext context) {
     return Scaffold(
