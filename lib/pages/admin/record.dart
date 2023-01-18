@@ -2,6 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:grad_proj/pages/admin/admin_home.dart';
+import 'package:grad_proj/pages/admin/show_test.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter/cupertino.dart';
 import '../../common/theme_helper.dart';
@@ -19,6 +20,24 @@ class _record_pageState extends State<record_page> {
     'Ali',
     'Ahmad',
     'Ali',
+  ];
+  List<String> fullname = [
+    'Ahmad ',
+    'Ali yaseen',
+    'Ahmad dff',
+    'Ali',
+  ];
+  List<String> id = [
+    '111111',
+    '000000',
+    '2222222',
+    '102555555',
+  ];
+  List<int> age = [
+    20,
+    22,
+    23,
+    12,
   ];
   List<String> phone = [
     "092396420",
@@ -198,7 +217,7 @@ class _record_pageState extends State<record_page> {
   Widget patient(BuildContext context, Size size, int i) {
     return Stack(children: <Widget>[
       Padding(
-        padding: EdgeInsets.only(left: 10, top: 10, right: 50, bottom: 10),
+        padding: EdgeInsets.only(left: 10, top: 10, right: 10, bottom: 10),
         child: Text(
           user_name[i],
           style: TextStyle(
@@ -208,10 +227,28 @@ class _record_pageState extends State<record_page> {
         ),
       ),
       Padding(
-        padding: EdgeInsets.fromLTRB(160, 15, 0, 10),
+        padding: EdgeInsets.fromLTRB(180, 15, 20, 10),
         child: Text.rich(TextSpan(children: [
           TextSpan(
-            text: ' Show Details',
+            text: 'Results',
+            recognizer: TapGestureRecognizer()
+              ..onTap = () {
+                Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (context) => showtest_page()));
+              },
+            style: TextStyle(
+                decoration: TextDecoration.underline,
+                color: Color.fromARGB(255, 0, 0, 0),
+                fontSize: MediaQuery.of(context).size.width * 0.037,
+                fontWeight: FontWeight.w500),
+          ),
+        ])),
+      ),
+      Padding(
+        padding: EdgeInsets.fromLTRB(240, 15, 0, 10),
+        child: Text.rich(TextSpan(children: [
+          TextSpan(
+            text: 'Details',
             recognizer: TapGestureRecognizer()
               ..onTap = () {
                 showAlertDialog(context, i);
@@ -223,19 +260,6 @@ class _record_pageState extends State<record_page> {
                 fontWeight: FontWeight.w500),
           ),
         ])),
-      ),
-      Padding(
-        padding: EdgeInsets.fromLTRB(230, 0, 0, 10),
-        child: IconButton(
-          icon: Icon(
-            Icons.arrow_forward_ios,
-            size: 15,
-            color: Color.fromARGB(255, 0, 0, 0),
-          ),
-          onPressed: () {
-            showAlertDialog(context, i);
-          },
-        ),
       ),
     ]);
   }
@@ -266,7 +290,7 @@ class _record_pageState extends State<record_page> {
                       },
                     ),
                     Text(
-                      user_name[k],
+                      fullname[k],
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         color: Color.fromARGB(255, 0, 0, 0),
@@ -274,32 +298,142 @@ class _record_pageState extends State<record_page> {
                         fontWeight: FontWeight.w600,
                       ),
                     ),
-                    Padding(
-                      padding: EdgeInsets.only(top: 10),
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(10, 30, 10, 0),
+                          child: Text(
+                            "User name:",
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.black,
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(10, 30, 0, 0),
+                          child: Text(
+                            user_name[k],
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600,
+                              color: Color.fromARGB(255, 9, 78, 153),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                    Text(
-                      phone[k],
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Color.fromARGB(255, 9, 78, 153),
-                        fontSize: MediaQuery.of(context).size.height * 0.023,
-                        fontWeight: FontWeight.w600,
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+                          child: Text(
+                            "Age:",
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.black,
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(10, 10, 0, 0),
+                          child: Text(
+                            age[k].toString(),
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600,
+                              color: Color.fromARGB(255, 9, 78, 153),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+                          child: Text(
+                            "Identity Number:",
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.black,
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(10, 10, 0, 0),
+                          child: Text(
+                            id[k],
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600,
+                              color: Color.fromARGB(255, 9, 78, 153),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+                          child: Text(
+                            "Mobile Number:",
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600,
+                              color: Colors.black,
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(10, 10, 0, 0),
+                          child: Text(
+                            phone[k],
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600,
+                              color: Color.fromARGB(255, 9, 78, 153),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(30, 25, 40, 0),
+                      child: Container(
+                        //decoration: ThemeHelper().buttonBoxDecoration(context),
+                        child: ElevatedButton(
+                          style: TextButton.styleFrom(
+                              padding: EdgeInsets.only(
+                                  left: 10, right: 10, top: 0, bottom: 1),
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20)),
+                              backgroundColor:
+                                  Color(0xFFFB475F).withOpacity(.65)),
+                          child: Padding(
+                            padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
+                            child: Text(
+                              "Show Tests",
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                          onPressed: () async {
+                            Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => showtest_page()));
+                          },
+                        ),
                       ),
                     ),
-                    Padding(
-                      padding: EdgeInsets.only(top: 20),
-                    ),
-                    Text(
-                      "Tests:",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: Color.fromARGB(255, 0, 0, 0),
-                        fontSize: MediaQuery.of(context).size.height * 0.024,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                    for (int m = 0; m < selected_test[k].length; m++)
-                      text_wed(context, selected_test[k][m], m),
                   ],
                 ),
               ),
