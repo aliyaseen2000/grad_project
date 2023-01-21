@@ -105,24 +105,24 @@ class _uresult_pageState extends State<uresult_page> {
                   blurRadius: 8.0),
             ],
           ),
-          child: SingleChildScrollView(
+         child: SingleChildScrollView(
             scrollDirection: Axis.vertical,
             child: Column(children: [
-              Row(children: [
+            
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(50, 15, 0, 0),
-                  child: Text(
+                  padding: EdgeInsets.fromLTRB(0, 15, 0, 0),),
+                Text(
                     file_name[i],
+                    textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
                       color: Colors.black,
                     ),
                   ),
-                ),
-                Padding(
-                  padding: EdgeInsets.fromLTRB(70, 15, 0, 0),
-                  child: Container(
+               Padding(
+                  padding: EdgeInsets.fromLTRB(0, 10, 0, 0),),
+                  Container(
                     //decoration: ThemeHelper().buttonBoxDecoration(context),
                     child: ElevatedButton(
                       style: TextButton.styleFrom(
@@ -149,8 +149,6 @@ class _uresult_pageState extends State<uresult_page> {
                       },
                     ),
                   ),
-                ),
-              ]),
             ]),
           ),
         ));
